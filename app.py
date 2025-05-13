@@ -2,20 +2,25 @@ from flask import Flask, render_template
 import requests
 
 app = Flask(__name__)
-
+response = requests.get("https://api.lyrics.ovh/v1/artist/title")
+data = response.json()
+""" song_list = data['results'] """
+songs = []
+for song in data:
+    print(song)
 # Route for the home page
-@app.route("/")
+""" @app.route("/")
 def index():
     
-    response = requests.get("https://genshin.jmp.blue/")
+    response = requests.get("https://api.lyrics.ovh/v1/artist/title")
     data = response.json()
-    disney_list = data['results']
+    song_list = data['results']
     
-    characters = []
+    songs = []
     
-    for character in disney_list:
+    for song in songs:
         # Each Pokémon has a URL like "https://pokeapi.co/api/v2/pokemon/1/"
-        url = character['url']
+        url = song['url']
         parts = url.strip("/").split("/")
         id = parts[-1]  # The last part of the URL is the Pokémon's ID
         
@@ -29,10 +34,10 @@ def index():
         })
     
     # We tell Flask to show the 'index.html' page and pass the list of Pokémon.
-    return render_template("index.html", pokemons=pokemons)
-
+    return render_template("index.html", songs=songs)
+ """
 # Route for the Pokémon details page
-@app.route("/pokemon/<int:id>")
+""" @app.route("/pokemon/<int:id>")
 def pokemon_detail(id):
     # We get detailed info for a specific Pokémon using its id.
     response = requests.get(f"https://api.disneyapi.dev/character/{id}")
@@ -62,4 +67,4 @@ def pokemon_detail(id):
     })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) """
