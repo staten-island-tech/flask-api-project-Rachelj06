@@ -3,12 +3,17 @@ import requests
 
 app = Flask(__name__)
 
-# Route for the home page
+response = requests.get("https://api.spotify.com")
+data = response.json()
+
+print(data)
+
+
 @app.route("/")
 def index():
-    
-    response = requests.get("https://api.spotify.com")
+    """ response = requests.get("https://api.spotify.com")
     data = response.json()
-    _list = data['results']
-    
+    song_list = data['results']
+    song = [] """
+
    
