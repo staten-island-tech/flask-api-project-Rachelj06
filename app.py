@@ -14,9 +14,9 @@ for track in data['data']:
 
 @app.route("/")
 def index():
-    """ response = requests.get("")
+    response = requests.get("https://api.deezer.com/chart/0/tracks?limit=100")
     data = response.json()
-    song_list = data['results']
-    song = [] """
+    for track in data['data']:
+        pass
 
    
