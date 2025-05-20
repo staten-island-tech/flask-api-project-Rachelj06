@@ -3,20 +3,14 @@ import requests
 
 app = Flask(__name__)
 
-response = requests.get("https://api.deezer.com/chart/0/tracks?limit=100")
-data = response.json()
-
-for track in data['data']:
-    print(f"{track['title']} by {track['artist']['name']}")
-
-
-
 
 @app.route("/")
 def index():
     response = requests.get("https://api.deezer.com/chart/0/tracks?limit=100")
     data = response.json()
-    for track in data['data']:
-        pass
+    track_list = data['data']
+    tracks = []
+    for track in track_list:
+        tracks.append(track['title'])
 
    
