@@ -11,6 +11,8 @@ def index():
     track_list = data['data']
     tracks = []
     for track in track_list:
-        tracks.append(track['title'])
+        tracks.append(track)
+    return render_template("index.html", tracks=tracks)
 
-   
+if __name__ == '__main__':
+    app.run(debug=True)

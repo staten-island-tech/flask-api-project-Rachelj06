@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>First 150 Pokémon</title>
+    <title></title>
     
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   </head>
@@ -10,9 +10,8 @@
     <div class="container">
       <h1>Songs</h1>
       <div class="card-container">
-        
         {% for track in tracks %}
-        
+        {{track.title}} </a> 
         {% endfor %}
       </div>
     </div>
