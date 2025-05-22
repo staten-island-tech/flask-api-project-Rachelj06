@@ -12,6 +12,10 @@ def index():
     tracks = []
     for track in track_list:
         tracks.append(track)
+        title = track['title']
+        artist = track['artist']['name']
+        image = track['md5_image']
+
     return render_template("index.html", tracks=tracks)
 
 if __name__ == '__main__':
