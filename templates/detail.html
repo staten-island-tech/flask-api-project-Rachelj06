@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ track.title }} - Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-color: #0d0d0d; color: #ffffff; text-align: center; padding: 20px;">
+  <div class="container">
+    <h1>{{ track.title }}</h1>
+    <img src="{{ track.album.cover_medium }}" alt="Album Cover">
+    <h2>Artist: {{ track.artist.name }}</h2>
+    <p>Duration: {{ track.duration }} seconds</p>
+    <p>Album: {{ track.album.title }}</p>
+    <p>Release Date: {{ track.release_date }}</p>
+    <br>
+    <a href="{{ track.link }}" target="_blank">🎧 Listen on Deezer</a>
+    <br><br>
+    <a href="{{ url_for('index') }}">
+      <button>Back to Home</button>
+    </a>
+  </div>
+</body>
+</html>
