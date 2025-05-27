@@ -69,3 +69,19 @@ h1 {
   background-color: #c933ff;
   box-shadow: 0 0 10px #d633ff;
 }
+
+a button {
+  padding: 8px 16px;
+  background-color: #e226ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+a button:hover {
+  background-color: #c933ff;
+  box-shadow: 0 0 10px #d633ff;
+}

@@ -13,7 +13,8 @@
     <p>Album: {{ track.album.title }}</p>
     <p>Release Date: {{ track.release_date }}</p>
     <br>
-    <a href="{{ track.link }}" target="_blank">🎧 Listen on Deezer</a>
+    <a href="{{ track.link }}" target="_blank">
+      <button>🎧 Listen on Deezer</button></a>
     <br><br>
     <a href="{{ url_for('index') }}">
       <button>Back to Home</button>
