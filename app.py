@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    response = requests.get("https://api.deezer.com/chart/0/tracks?limit=50")
+    response = requests.get("https://api.deezer.com/chart/0/tracks?limit=100")
     data = response.json()
     track_list = data['data']
 
