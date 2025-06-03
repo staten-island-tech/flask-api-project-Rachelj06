@@ -7,22 +7,28 @@
 </head>
 <body>
 
-  <form method = 'filter'>
-    <input type="text" 
-  </form>
+  <h1>Top 100 Songs</h1>
 
- <div class="card-container">
-  {}
-  {% for track in tracks %}
-    <div class="card">
-      <img src="{{ track.image }}" alt="Album cover">
-      <h3>{{ track.title }}</h3>
-      <p>{{ track.artist }}</p>
-      <a href="{{ url_for('detail', id=track.id) }}">
-        <button>See Details</button> 
-      </a>
-    </div>
-  {% endfor %}
-</div>
+  <form method="get" action="{{ url_for('index') }}">
+    <input type="text" name="q" placeholder="Search by title or artist" value="{{ query }}">
+    <button type="submit">Search</button>
+  </form>
+  {% if showing_all %}
+    <p style="color: #ff0066;">No matching songs found. Showing all tracks instead.</p>
+  {% endif %}
+  
+  <div class="card-container">
+    {% for track in tracks %}
+      <div class="card">
+        <img src="{{ track.image }}" alt="Album cover">
+        <h3>{{ track.title }}</h3>
+        <p>{{ track.artist }}</p>
+        <a href="{{ url_for('detail', id=track.id) }}">
+          <button>See Details</button>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+
 </body>
 </html>
