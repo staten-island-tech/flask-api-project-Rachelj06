@@ -1,10 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
+    if request.method == "filter":
+        filter = request.form["filter"]
+
     response = requests.get("https://api.deezer.com/chart/0/tracks?limit=100")
     data = response.json()
     track_list = data['data']
@@ -19,6 +22,10 @@ def index():
         })
 
     return render_template("index.html", tracks=tracks)
+
+@app.route("/ee")
+def filter(f):
+    e = "e"
 
 @app.route("/track/<int:id>")
 def detail(id):

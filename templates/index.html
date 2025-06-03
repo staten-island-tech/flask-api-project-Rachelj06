@@ -6,7 +6,13 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
+
+  <form method = 'filter'>
+    <input type="text" 
+  </form>
+
  <div class="card-container">
+  {}
   {% for track in tracks %}
     <div class="card">
       <img src="{{ track.image }}" alt="Album cover">
